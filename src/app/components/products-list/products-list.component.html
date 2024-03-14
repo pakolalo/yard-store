@@ -1,5 +1,11 @@
 <main class="container">
   <section class="products_container">
-    <app-product></app-product>
+    <app-product
+    *ngFor="let product of products"
+    [product]="product"
+    (addedProduct)="addToShoppingCart($event)">
+    </app-product>
+    <p>{{myShoppingCart.length}}</p>
+    <p>{{total}}</p>
   </section>
 </main>

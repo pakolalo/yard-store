@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { Product } from '../../models/product.model';
 
 @Component({
@@ -11,11 +11,17 @@ import { Product } from '../../models/product.model';
 })
 export class ProductComponent {
 
-  product:Product = {
-    id: '1',
-    name: 'Chamarra novedosa',
-    price: 19,
-    image: 'https://m.media-amazon.com/images/I/61MWVals6tL._AC_SX466_.jpg',
+  @Input() product:Product = {
+    id: '',
+    name: '',
+    price: 0,
+    image: '',
+  }
+
+  @Output() addedProduct = new EventEmitter<Product>();
+
+  addToCart() {
+    this.addedProduct.emit(this.product);
   }
 
 }
