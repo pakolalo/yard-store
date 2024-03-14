@@ -1,35 +1,72 @@
-<div class="show-mobile">
-  <div>
-    <button>
-      <img src="./../../../assets/svg/icon_menu.svg" alt="menu">
-    </button>
-    <a href="">
-      <img src="./assets/svg/logo_yard_sale.svg" alt="logo">
-    </a>
-    <a href="">
-      <img src="./assets/svg/icon_shopping_cart.svg" alt="logo">
-    </a>
-  </div>
-</div>
-<div class="hide-mobile">
-  <div>
-    <nav>
-      <a class="logo" href="">
-        <img src="./assets/svg/logo_yard_sale.svg" alt="logo">
+<header class="header">
+  <section class="container">
+    <nav class="navbar">
+      <button
+      class="nav-toggle-btn"
+      (click)="toggleNavBar()"
+      [class.active]="activeMenu"
+      id="box">
+      <span class="line line-1"></span>
+      <span class="line line-2"></span>
+      </button>
+      <a href="" class="logo_container">
+        <img class="logo" src="./../../../assets/svg/logo_yard_sale.svg" alt="Yard Sale logo">
       </a>
-      <ul>
-        <li><a href="">All</a></li>
-        <li><a href="">Clothes</a></li>
-        <li><a href="">Electronics</a></li>
+      <ul class="navbar_list">
+        <li class="navbar_item">
+          <a href="">All</a>
+        </li>
+        <li class="navbar_item">
+          <a href="">Clothes</a>
+        </li>
+        <li class="navbar_item">
+          <a href="">Electronics</a>
+        </li>
+        <li class="navbar_item">
+          <a href="">Furniture</a>
+        </li>
+        <li class="navbar_item">
+          <a href="">Toys</a>
+        </li>
+        <li class="navbar_item">
+          <a href="">Others</a>
+        </li>
       </ul>
-    </nav>
-    <div class="info">
-      <div class="account">nicolas&64.nicolas.com</div>
-      <div>
-        <a href="">
-          <img src="./assets/svg/icon_shopping_cart.svg" alt="logo">
-        </a>
+      <div class="navbar_right">
+        <a href="" class="login">Sign in</a>
+        <figure class="shoppingcart_container">
+          <img class="shoppingcart_img" src="./../../../assets/svg/icon_shopping_cart.svg" alt="Shopping cart img">
+          <p class="shoppingcart_item">1</p>
+        </figure>
       </div>
+    </nav>
+  </section>
+  <section class="side_navbar" [class.active]="activeMenu">
+    <ul class="side_navbar-list">
+      <li class="side_navbar-item">
+        CATEGORIES
+      </li>
+      <li class="side_navbar-item">
+        <a href="">All</a>
+      </li>
+      <li class="side_navbar-item">
+        <a href="">Clothes</a>
+      </li>
+      <li class="side_navbar-item">
+        <a href="">Electronics</a>
+      </li>
+      <li class="side_navbar-item">
+        <a href="">Furniture</a>
+      </li>
+      <li class="side_navbar-item">
+        <a href="">Toys</a>
+      </li>
+      <li class="side_navbar-item">
+        <a href="">Others</a>
+      </li>
+    </ul>
+    <div>
+      <a class="side_navbar_login" href="">Log in</a>
     </div>
-  </div>
-</div>
+  </section>
+</header>

@@ -38,6 +38,15 @@
   --radius-pill: 100px;
   --radius-circle: 50%;
 
+  /*TRANSITION*/
+
+  --transition-1: .25s ease;
+  --transition-2: .5s ease;
+  --cubic-in: cubic-bezier(.51, .03, .64, .28);
+  --cubic-out: cubic-bezier(.05, .83, .52, .97);
+  --cubic-bounce: .6s cubic-bezier(.68, -.55, .265, 1.55);
+  --cubic-ease-out: 700ms cubic-bezier(.17, .67, 0, 1.01);
+
 }
 
 /*RESET*/
@@ -82,4 +91,11 @@
     font-size: 1.6rem;
     line-height: 1.75;
     overflow: hidden;
+  }
+
+  .container {
+    max-width: 1080px;
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
   }

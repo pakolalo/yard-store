@@ -8,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './nav.component.css'
 })
 export class NavComponent {
+  activeMenu = false;
+
+  toggleNavBar() {
+    this.activeMenu = !this.activeMenu;
+  }
 
 }
