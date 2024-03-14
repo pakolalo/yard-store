@@ -1,7 +1,7 @@
 <main class="container">
   <section class="products_container">
     <app-product
-    *ngFor="let product of products"
+    *ngFor="let product of products()"
     [product]="product"
     (addedProduct)="addToShoppingCart($event)">
     </app-product>

@@ -1,11 +1,11 @@
 <article class="product_card">
   <figure class="productimg_container">
-    <img class="product_img" [src]="product.image" [alt]="product.name">
+    <img class="product_img" [src]="product.images[0]" [alt]="product.title">
   </figure>
   <div class="product_buttom">
     <span class="product_text--container">
       <h2 class="product_price">{{product.price | currency}}</h2>
-      <p class="product_title">{{product.name}}</p>
+      <p class="product_title">{{product.title}}</p>
     </span>
     <button class="add_btn" (click)="addToCart()">
       Add to cart

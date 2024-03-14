@@ -11,12 +11,7 @@ import { Product } from '../../models/product.model';
 })
 export class ProductComponent {
 
-  @Input() product:Product = {
-    id: '',
-    name: '',
-    price: 0,
-    image: '',
-  }
+  @Input({required: true}) product!: Product;
 
   @Output() addedProduct = new EventEmitter<Product>();
 

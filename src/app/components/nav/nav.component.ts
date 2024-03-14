@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Product } from '../../models/product.model';
-import { StoreService } from '../../services/store.service';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-nav',
@@ -14,9 +14,9 @@ export class NavComponent {
   myShoppingCart: Product[] =[]
 
   constructor(
-    private storeService: StoreService,
+    private cartService: CartService,
   ) {
-    this. myShoppingCart = this.storeService.getShoppingCart();
+    this. myShoppingCart = this.cartService.getShoppingCart();
   }
 
   toggleNavBar() {
@@ -24,7 +24,7 @@ export class NavComponent {
   }
 
   addToShoppingCart(product: Product) {
-    this.storeService.addProduct(product)
+    this.cartService.addProduct(product)
   }
 
 }
