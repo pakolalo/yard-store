@@ -195,7 +195,7 @@
     position: absolute;
     visibility: hidden;
     top: 70px;
-    right: -370px;
+    left: -370px;
     display: flex;
     flex-direction: column;
     justify-content:space-between;
@@ -209,7 +209,7 @@
   }
 
   .side_navbar.active {
-    transform: translateX(-370px);
+    transform: translateX(370px);
     visibility: visible;
     transition-timing-function: var(--cubic-out);
   }
