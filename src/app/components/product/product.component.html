@@ -1,3 +1,14 @@
-<img [src]="product.image" [alt]="product.name">
-<h2>{{product.price | currency}}</h2>
-<p>{{product.name}}</p>
+<article class="product_card">
+  <figure class="productimg_container">
+    <img class="product_img" [src]="product.image" [alt]="product.name">
+  </figure>
+  <div class="product_buttom">
+    <span class="product_text--container">
+      <h2 class="product_price">{{product.price | currency}}</h2>
+      <p class="product_title">{{product.name}}</p>
+    </span>
+    <button class="add_btn">
+      Add to cart
+    </button>
+  </div>
+</article>

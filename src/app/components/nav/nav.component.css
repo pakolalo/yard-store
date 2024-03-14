@@ -105,17 +105,14 @@
     transition: var(--transition-1);
   }
 
-  .nav-toggle-btn.active {
-    background-color: var(--black);
-  }
 
   .nav-toggle-btn.active .line-1 {
-    background-color: var(--white);
+    background-color: var(--black);
     transform: rotate(45deg) translate(4px, 4px);
   }
 
   .nav-toggle-btn.active .line-2 {
-    background-color: var(--white);
+    background-color: var(--black);
     transform: rotate(-45deg) translate(3px, -2px);
   }
 
