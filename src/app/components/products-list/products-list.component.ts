@@ -14,6 +14,8 @@ import { ProductService } from '../../services/product.service';
 })
 export class ProductsListComponent implements OnInit{
   products = signal<Product[]>([]);
+  cart = signal<Product[]>([]);
+
   private cartService = inject(CartService);
   private productService = inject(ProductService);
 
@@ -29,7 +31,7 @@ export class ProductsListComponent implements OnInit{
   }
 
 
-  addToShoppingCart(product: Product) {
+  addToCart(product: Product) {
     this.cartService.addProduct(product);
   }
 
