@@ -11,6 +11,7 @@ import { CartService } from '../../services/cart.service';
 })
 export class NavComponent {
   activeMenu = false;
+  activeShoppingCart = false;
   myShoppingCart: Product[] =[]
 
   constructor(
@@ -21,6 +22,10 @@ export class NavComponent {
 
   toggleNavBar() {
     this.activeMenu = !this.activeMenu;
+  }
+
+  toggleShoppingCart() {
+    this.activeShoppingCart = !this.activeShoppingCart;
   }
 
   addToShoppingCart(product: Product) {
