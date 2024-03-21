@@ -79,12 +79,15 @@
   class="shopping_cart--container">
     <div class="container">
       <h2 class="shopping_cart--title">Shopping cart</h2>
-    <div class="products_container">
+    <div
+    class="products_container"
+    *ngFor="let product of myShoppingCart">
+    <app-shopping-cart-product [product]="product"></app-shopping-cart-product>
     </div>
     <div>
       <span class="total_container">
         <h3>Total</h3>
-        <p>$</p>
+        <p>{{total() | currency}}</p>
       </span>
       <button class="checkout_btn">Checkout</button>
     </div>

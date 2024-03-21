@@ -1,0 +1,14 @@
+<article class="shopping_cart_product--container">
+  <a href="" class="shopping_cart_product--left">
+    <figure class="shopping_cart_product_img--container">
+      <img [src]="product.images[0]" [alt]="product.title">
+    </figure>
+    <h3 class="shopping_cart_product--title">{{product.title | slice :0 :19}}...</h3>
+  </a>
+  <div class="shopping_cart_product--right">
+    <p class="shopping_cart_product--price">{{product.price | currency}}</p>
+    <button class="close_btn">
+      <img src="../../../assets/svg/bx-x.svg" alt="X icon btn">
+    </button>
+  </div>
+</article>
