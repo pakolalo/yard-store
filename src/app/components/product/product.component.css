@@ -10,6 +10,14 @@
   object-fit: cover;
   object-position: center;
   overflow: hidden;
+  transform: scale(1);
+  transition: .2s;
+  cursor: pointer;
+}
+
+.productimg_container:hover {
+  transform: scale(.9);
+  transition: .2s;
 }
 
 .product_img {

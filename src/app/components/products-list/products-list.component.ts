@@ -15,6 +15,18 @@ import { ProductService } from '../../services/product.service';
 export class ProductsListComponent implements OnInit{
   products = signal<Product[]>([]);
   cart = signal<Product[]>([]);
+  showProductDetail = false;
+  productDetail: Product = {
+    id: 0,
+    price: 0,
+    title: '',
+    images: [],
+    description: '',
+    category: {
+      id: 0,
+      name:''
+    }
+  }
 
   private cartService = inject(CartService);
   private productService = inject(ProductService);
@@ -30,9 +42,25 @@ export class ProductsListComponent implements OnInit{
     })
   }
 
+  togglePorductDetail() {
+    this.showProductDetail = !this.showProductDetail;
+  }
+
 
   addToCart(product: Product) {
     this.cartService.addProduct(product);
+  }
+
+  onShowProductDetail(id:number) {
+    this.productService.getOneProduct(id)
+    .subscribe({
+      next:(product) => {
+        this.togglePorductDetail()
+        this.productDetail = product
+      },
+      error: () => {}
+    })
+
   }
 
 }

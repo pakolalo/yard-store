@@ -14,9 +14,14 @@ export class ProductComponent {
   @Input({required: true}) product!: Product;
 
   @Output() addedProduct = new EventEmitter<Product>();
+  @Output() showProductDetail = new EventEmitter<number>();
 
   addToCart() {
     this.addedProduct.emit(this.product);
+  }
+
+  showDetail() {
+    this.showProductDetail.emit(this.product.id);
   }
 
 }

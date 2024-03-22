@@ -1,6 +1,12 @@
 <article class="product_card">
-  <figure class="productimg_container">
-    <img class="product_img" [src]="product.images[0]" [alt]="product.title">
+  <figure
+  class="productimg_container"
+  (click)="showDetail()">
+    <img
+    class="product_img"
+    *ngIf="product.images.length > 0"
+    [src]="product.images[0]"
+    [alt]="product.title">
   </figure>
   <div class="product_buttom">
     <span class="product_text--container">

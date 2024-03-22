@@ -3,7 +3,23 @@
     <app-product
     *ngFor="let product of products()"
     [product]="product"
-    (addedProduct)="addToCart($event)">
+    (addedProduct)="addToCart($event)"
+    (showProductDetail)="onShowProductDetail($event)">
     </app-product>
+  </section>
+  <section class="product_detail--container" [class.active]="showProductDetail">
+    <button class="close_container" (click)="togglePorductDetail()">
+      <img class="close_btn-g" src="../../../assets/svg/bx-x.svg" alt="X icon">
+      <img class="close_btn-r" src="../../../assets/svg/bx-x-red.svg" alt="X icon">
+    </button>
+    <figure class="product_detail_img--container">
+      <img [src]="productDetail.images" [alt]="productDetail.title">
+    </figure>
+    <div class="product_detail--text">
+      <p class="product_detail--price">{{productDetail.price | currency}}</p>
+      <h3 class="product_detail--name">{{productDetail.title}}</h3>
+      <p class="product_detail--des">{{productDetail.description}}</p>
+      <button class="product_detail--btn">Add to cart</button>
+    </div>
   </section>
 </main>
