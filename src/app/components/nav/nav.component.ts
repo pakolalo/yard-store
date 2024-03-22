@@ -1,4 +1,4 @@
-import { Component, OnChanges, SimpleChanges, signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { Product } from '../../models/product.model';
 import { CartService } from '../../services/cart.service';
 import { CommonModule } from '@angular/common';
@@ -11,11 +11,11 @@ import { ShoppingCartProductComponent } from '../shopping-cart-product/shopping-
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css'
 })
-export class NavComponent implements OnChanges {
+export class NavComponent {
   activeMenu = false;
   activeShoppingCart = false;
   myShoppingCart: Product[] =[];
-  total = signal(0);
+  //total = signal(0);
 
   constructor(
     private cartService: CartService,
@@ -31,12 +31,12 @@ export class NavComponent implements OnChanges {
     this.activeShoppingCart = !this.activeShoppingCart;
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    const cart = changes['myShoppingCart'];
-    if (cart) {
-      this.total.set(this.calcTotalShoppingCart());
-    }
-  }
+  // ngOnChanges(changes: SimpleChanges): void {
+  //   const cart = changes['myShoppingCart'];
+  //   if (cart) {
+  //     this.total.set(this.calcTotalShoppingCart());
+  //   }
+  // }
 
   addToShoppingCart(product: Product) {
     this.cartService.addProduct(product)
