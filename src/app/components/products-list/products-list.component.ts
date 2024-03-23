@@ -1,16 +1,20 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, inject, signal } from '@angular/core';
+import { Component, OnInit, inject, signal, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ProductComponent } from '../product/product.component';
 import { Product } from '../../models/product.model';
 import { CartService } from '../../services/cart.service';
 import { ProductService } from '../../services/product.service';
+import { register } from 'swiper/element/bundle';
+import Swiper from 'swiper';
+register();
 
 @Component({
   selector: 'app-products-list',
   standalone: true,
   imports: [CommonModule, ProductComponent],
   templateUrl: './products-list.component.html',
-  styleUrl: './products-list.component.css'
+  styleUrl: './products-list.component.css',
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class ProductsListComponent implements OnInit{
   products = signal<Product[]>([]);
@@ -60,7 +64,6 @@ export class ProductsListComponent implements OnInit{
       },
       error: () => {}
     })
-
-  }
+  };
 
 }

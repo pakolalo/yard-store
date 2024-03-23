@@ -12,9 +12,16 @@
       <img class="close_btn-g" src="../../../assets/svg/bx-x.svg" alt="X icon">
       <img class="close_btn-r" src="../../../assets/svg/bx-x-red.svg" alt="X icon">
     </button>
-    <figure class="product_detail_img--container">
+    <swiper-container navigation="true" grab-cursor="true">
+      <swiper-slide
+      class="product_detail_img--container"
+      *ngFor="let image of productDetail.images">
+        <img [src]="image" [alt]="productDetail.title">
+      </swiper-slide>
+    </swiper-container>
+    <!-- <figure class="product_detail_img--container">
       <img [src]="productDetail.images" [alt]="productDetail.title">
-    </figure>
+    </figure> -->
     <div class="product_detail--text">
       <p class="product_detail--price">{{productDetail.price | currency}}</p>
       <h3 class="product_detail--name">{{productDetail.title}}</h3>
