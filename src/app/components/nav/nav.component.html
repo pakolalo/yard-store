@@ -13,8 +13,13 @@
         <img class="logo" src="./../../../assets/svg/logo_yard_sale.svg" alt="Yard Sale logo">
       </a>
       <ul class="navbar_list">
-        <li class="navbar_item">
-          <a href="">All</a>
+        <li
+        class="navbar_item">
+          <a
+          routerLinkActive="navbar_item.active"
+          routerLink="/"
+          [routerLinkActiveOptions]="{exact:true}"
+          >All</a>
         </li>
         <li class="navbar_item">
           <a href="">Clothes</a>

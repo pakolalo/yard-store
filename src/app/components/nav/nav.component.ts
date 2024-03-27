@@ -2,11 +2,12 @@ import { Component, inject, signal } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { CommonModule } from '@angular/common';
 import { ShoppingCartProductComponent } from '../shopping-cart-product/shopping-cart-product.component';
+import { RouterLinkWithHref, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
   standalone: true,
-  imports: [CommonModule, ShoppingCartProductComponent],
+  imports: [CommonModule, ShoppingCartProductComponent, RouterLinkWithHref, RouterLinkActive],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css'
 })
