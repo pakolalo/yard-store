@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { NavComponent } from '../../components/nav/nav.component';
 
 
 @Component({
   selector: 'app-main-layout',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, NavComponent],
   templateUrl: './main-layout.component.html',
   styleUrl: './main-layout.component.css'
 })
