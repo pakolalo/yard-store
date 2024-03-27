@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, computed, signal } from '@angular/core';
 import { Product } from '../models/product.model';
 
 @Injectable({
@@ -6,20 +6,16 @@ import { Product } from '../models/product.model';
 })
 export class CartService {
 
-  private myShoppingCart: Product[] = [];
-  total = 0;
+  cart = signal<Product[]>([]); //guardamos la lista de productos que el usuario va agregar al carrito
+  total = computed(() => {
+    const cart = this.cart();
+    return cart.reduce((total, product) => total + product.price, 0)
+  });
 
   constructor() { }
 
-  addProduct(product: Product) {
-    this.myShoppingCart.push(product);
+  addToCart(product: Product) {
+    this.cart.update(state => [...state, product]);
   }
 
-  getShoppingCart() {
-    return this.myShoppingCart;
-  }
-
-  getTotal() {
-    return this.total = this.myShoppingCart.reduce((sum, item)=> sum + item.price, 0)
-  }
 }

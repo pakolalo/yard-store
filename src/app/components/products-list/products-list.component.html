@@ -1,3 +1,4 @@
+<app-nav></app-nav>
 <main class="container">
   <section class="products_container">
     <app-product
@@ -15,18 +16,21 @@
     <swiper-container navigation="true" grab-cursor="true">
       <swiper-slide
       class="product_detail_img--container"
-      *ngFor="let image of productDetail.images">
-        <img [src]="image" [alt]="productDetail.title">
+      *ngFor="let image of productDetail?.images">
+        <img [src]="image" [alt]="productDetail?.title">
       </swiper-slide>
     </swiper-container>
     <!-- <figure class="product_detail_img--container">
       <img [src]="productDetail.images" [alt]="productDetail.title">
     </figure> -->
     <div class="product_detail--text">
-      <p class="product_detail--price">{{productDetail.price | currency}}</p>
-      <h3 class="product_detail--name">{{productDetail.title}}</h3>
-      <p class="product_detail--des">{{productDetail.description}}</p>
-      <button class="product_detail--btn">Add to cart</button>
+      <p class="product_detail--price">{{productDetail?.price | currency}}</p>
+      <h3 class="product_detail--name">{{productDetail?.title}}</h3>
+      <p class="product_detail--des">{{productDetail?.description}}</p>
+      <button
+      class="product_detail--btn"
+      (click)="addToCart(product)"
+      >Add to cart</button>
     </div>
   </section>
 </main>

@@ -40,8 +40,8 @@
          class="shoppingcart_container">
           <img class="shoppingcart_img" src="./../../../assets/svg/icon_shopping_cart.svg" alt="Shopping cart img">
           <img class="shoppingcart_img grey" src="./../../../assets/svg/icon_shopping_cart_gray.svg" alt="Shopping cart img">
-          <p class="shoppingcart_item">{{myShoppingCart.length}}</p>
-          <p class="shoppingcart_item black">{{myShoppingCart.length}}</p>
+          <p class="shoppingcart_item">{{cart().length}}</p>
+          <p class="shoppingcart_item black">{{cart().length}}</p>
         </button>
       </div>
     </nav>
@@ -81,13 +81,13 @@
       <h2 class="shopping_cart--title">Shopping cart</h2>
     <div
     class="products_container"
-    *ngFor="let product of myShoppingCart">
+    *ngFor="let product of cart()">
     <app-shopping-cart-product [product]="product"></app-shopping-cart-product>
     </div>
     <div>
       <span class="total_container">
         <h3>Total</h3>
-        <p>{{calcTotalShoppingCart() | currency}}</p>
+        <p>{{total() | currency}}</p>
       </span>
       <button class="checkout_btn">Checkout</button>
     </div>

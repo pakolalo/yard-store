@@ -1,26 +1,27 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject, signal, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NavComponent } from '../nav/nav.component';
 import { ProductComponent } from '../product/product.component';
 import { Product } from '../../models/product.model';
 import { CartService } from '../../services/cart.service';
 import { ProductService } from '../../services/product.service';
 import { register } from 'swiper/element/bundle';
-import Swiper from 'swiper';
 register();
 
 @Component({
   selector: 'app-products-list',
   standalone: true,
-  imports: [CommonModule, ProductComponent],
+  imports: [CommonModule, NavComponent, ProductComponent],
   templateUrl: './products-list.component.html',
   styleUrl: './products-list.component.css',
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class ProductsListComponent implements OnInit{
   products = signal<Product[]>([]);
-  cart = signal<Product[]>([]);
   showProductDetail = false;
-  productDetail: Product = {
+  product!: Product;
+  //productDetail = signal<Product[] | null>(null);
+  productDetail: Product | null = {
     id: 0,
     price: 0,
     title: '',
@@ -50,9 +51,8 @@ export class ProductsListComponent implements OnInit{
     this.showProductDetail = !this.showProductDetail;
   }
 
-
   addToCart(product: Product) {
-    this.cartService.addProduct(product);
+    return this.cartService.addToCart(product);
   }
 
   onShowProductDetail(id:number) {
@@ -60,7 +60,7 @@ export class ProductsListComponent implements OnInit{
     .subscribe({
       next:(product) => {
         this.togglePorductDetail()
-        this.productDetail = product
+        this.productDetail = product;
       },
       error: () => {}
     })
