@@ -1,5 +1,5 @@
 <article class="shopping_cart_product--container">
-  <a href="" class="shopping_cart_product--left">
+  <a [routerLink]="['/product', product.id]" class="shopping_cart_product--left">
     <figure class="shopping_cart_product_img--container">
       <img [src]="product.images[0]" [alt]="product.title">
     </figure>

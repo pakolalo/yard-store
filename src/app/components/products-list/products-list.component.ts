@@ -5,13 +5,14 @@ import { ProductComponent } from '../product/product.component';
 import { Product } from '../../models/product.model';
 import { CartService } from '../../services/cart.service';
 import { ProductService } from '../../services/product.service';
+import { RouterLinkWithHref } from '@angular/router';
 import { register } from 'swiper/element/bundle';
 register();
 
 @Component({
   selector: 'app-products-list',
   standalone: true,
-  imports: [CommonModule, NavComponent, ProductComponent],
+  imports: [CommonModule, NavComponent, ProductComponent, RouterLinkWithHref],
   templateUrl: './products-list.component.html',
   styleUrl: './products-list.component.css',
   schemas:[CUSTOM_ELEMENTS_SCHEMA]

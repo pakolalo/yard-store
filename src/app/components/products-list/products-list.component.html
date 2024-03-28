@@ -27,10 +27,11 @@
       <p class="product_detail--price">{{productDetail?.price | currency}}</p>
       <h3 class="product_detail--name">{{productDetail?.title}}</h3>
       <p class="product_detail--des">{{productDetail?.description}}</p>
-      <button
-      class="product_detail--btn"
-      (click)="addToCart(product)"
-      >Add to cart</button>
+      <a [routerLink]="['/product', productDetail?.id]">
+        <button
+        class="product_detail--btn"
+        >More details</button>
+      </a>
     </div>
   </section>
 </main>
