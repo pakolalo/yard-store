@@ -26,7 +26,7 @@
     <div class="product_detail--text">
       <p class="product_detail--price">{{productDetail?.price | currency}}</p>
       <h3 class="product_detail--name">{{productDetail?.title}}</h3>
-      <p class="product_detail--des">{{productDetail?.description}}</p>
+      <p class="product_detail--des">{{productDetail?.description | slice :0 :110}}...</p>
       <a [routerLink]="['/product', productDetail?.id]">
         <button
         class="product_detail--btn"

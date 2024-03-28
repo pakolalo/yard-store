@@ -11,7 +11,7 @@
   top: 70px;
   right: -370px;
   width: 320px;
-  height: 90vh;
+  height: auto;
   background-color: var(--white-op);
   visibility: hidden;
   transition: .5s var(--cubic-in);
