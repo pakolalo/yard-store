@@ -11,7 +11,7 @@ import { CartService } from '../../services/cart.service';
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.css'
 })
-export class ProductDetailComponent implements OnInit {
+export default class ProductDetailComponent implements OnInit {
 
   @Input() id?: number;
   product = signal<Product | null>(null);

@@ -19,7 +19,7 @@ register();
   styleUrl: './products-list.component.css',
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
-export class ProductsListComponent implements OnInit, OnChanges{
+export default class ProductsListComponent implements OnInit, OnChanges{
   products = signal<Product[]>([]);
   categories = signal<Category[]>([]);
   showProductDetail = false;
