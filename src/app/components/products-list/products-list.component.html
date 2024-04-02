@@ -1,10 +1,24 @@
 <app-nav></app-nav>
 <main class="container">
-  <section>
-    <h2>Categories</h2>
-    <ul>
-      <li *ngFor="let category of categories()">
-        <a href="">{{category.name}}</a>
+  <section class="categories_container">
+    <h2 class="category_title">Categories</h2>
+    <ul class="categories_list--container">
+      <li
+      class="category_item"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact:true}">
+        <a
+        routerLink="/">All</a>
+      </li>
+      <li
+      class="category_item"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{exact:true}"
+      *ngFor="let category of categories()">
+        <a
+        routerLink="/"
+        [queryParams]="{category_id: category.id}"
+        >{{category.name}}</a>
       </li>
     </ul>
   </section>

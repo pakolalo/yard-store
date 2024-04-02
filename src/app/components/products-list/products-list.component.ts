@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, inject, signal, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, OnInit, inject, signal, CUSTOM_ELEMENTS_SCHEMA, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { NavComponent } from '../nav/nav.component';
 import { ProductComponent } from '../product/product.component';
 import { Product } from '../../models/product.model';
@@ -7,19 +7,19 @@ import { Category } from '../../models/product.model';
 import { CartService } from '../../services/cart.service';
 import { ProductService } from '../../services/product.service';
 import { CategoryService } from '../../services/category.service';
-import { RouterLinkWithHref } from '@angular/router';
+import { RouterLinkWithHref, RouterLinkActive } from '@angular/router';
 import { register } from 'swiper/element/bundle';
 register();
 
 @Component({
   selector: 'app-products-list',
   standalone: true,
-  imports: [CommonModule, NavComponent, ProductComponent, RouterLinkWithHref],
+  imports: [CommonModule, NavComponent, ProductComponent, RouterLinkWithHref, RouterLinkActive],
   templateUrl: './products-list.component.html',
   styleUrl: './products-list.component.css',
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
-export class ProductsListComponent implements OnInit{
+export class ProductsListComponent implements OnInit, OnChanges{
   products = signal<Product[]>([]);
   categories = signal<Category[]>([]);
   showProductDetail = false;
@@ -41,11 +41,15 @@ export class ProductsListComponent implements OnInit{
   private cartService = inject(CartService);
   private productService = inject(ProductService);
   private categoryService = inject(CategoryService);
+  @Input() category_id?: string;
 
 
   ngOnInit(): void {
-    this.getProducts()
     this.getCategories()
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.getProducts()
   }
 
   togglePorductDetail() {
@@ -68,7 +72,7 @@ export class ProductsListComponent implements OnInit{
   };
 
   private getProducts() {
-    this.productService.getProducts()
+    this.productService.getProducts(this.category_id)
     .subscribe({
       next:(products) => {
         this.products.set(products);

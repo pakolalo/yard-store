@@ -42,13 +42,13 @@
   <section class="side_navbar" [class.active]="activeMenu">
     <ul class="side_navbar-list">
       <li class="side_navbar-item">
-        <a href="" (click)="toggleNavBar()">Products</a>
+        <a routerLink="/" (click)="toggleNavBar()">Products</a>
       </li>
       <li class="side_navbar-item">
-        <a href="" (click)="toggleNavBar()">About</a>
+        <a routerLink="/about" (click)="toggleNavBar()">About</a>
       </li>
       <li class="side_navbar-item">
-        <a href="" (click)="toggleNavBar()">Services</a>
+        <a routerLink="/services" (click)="toggleNavBar()">Services</a>
       </li>
     </ul>
     <div>
