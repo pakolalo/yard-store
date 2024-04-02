@@ -13,28 +13,16 @@
         <img class="logo" src="./../../../assets/svg/logo_yard_sale.svg" alt="Yard Sale logo">
       </a>
       <ul class="navbar_list">
-        <li
-        class="navbar_item">
-          <a
-          routerLinkActive="navbar_item.active"
-          routerLink="/"
-          [routerLinkActiveOptions]="{exact:true}"
-          >All</a>
+        <li class="navbar_item"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact:true}">
+          <a routerLink="/">Products</a>
         </li>
         <li class="navbar_item">
-          <a href="">Clothes</a>
+          <a routerLink="/about">About</a>
         </li>
         <li class="navbar_item">
-          <a href="">Electronics</a>
-        </li>
-        <li class="navbar_item">
-          <a href="">Furniture</a>
-        </li>
-        <li class="navbar_item">
-          <a href="">Toys</a>
-        </li>
-        <li class="navbar_item">
-          <a href="">Others</a>
+          <a routerLink="/services">Services</a>
         </li>
       </ul>
       <div class="navbar_right">
@@ -54,25 +42,13 @@
   <section class="side_navbar" [class.active]="activeMenu">
     <ul class="side_navbar-list">
       <li class="side_navbar-item">
-        CATEGORIES
+        <a href="" (click)="toggleNavBar()">Products</a>
       </li>
       <li class="side_navbar-item">
-        <a href="" (click)="toggleNavBar()">All</a>
+        <a href="" (click)="toggleNavBar()">About</a>
       </li>
       <li class="side_navbar-item">
-        <a href="" (click)="toggleNavBar()">Clothes</a>
-      </li>
-      <li class="side_navbar-item">
-        <a href="" (click)="toggleNavBar()">Electronics</a>
-      </li>
-      <li class="side_navbar-item">
-        <a href="" (click)="toggleNavBar()">Furniture</a>
-      </li>
-      <li class="side_navbar-item">
-        <a href="" (click)="toggleNavBar()">Toys</a>
-      </li>
-      <li class="side_navbar-item">
-        <a href="" (click)="toggleNavBar()">Others</a>
+        <a href="" (click)="toggleNavBar()">Services</a>
       </li>
     </ul>
     <div>

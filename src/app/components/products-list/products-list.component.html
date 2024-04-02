@@ -1,5 +1,13 @@
 <app-nav></app-nav>
 <main class="container">
+  <section>
+    <h2>Categories</h2>
+    <ul>
+      <li *ngFor="let category of categories()">
+        <a href="">{{category.name}}</a>
+      </li>
+    </ul>
+  </section>
   <section class="products_container">
     <app-product
     *ngFor="let product of products()"

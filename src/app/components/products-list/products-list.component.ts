@@ -3,8 +3,10 @@ import { Component, OnInit, inject, signal, CUSTOM_ELEMENTS_SCHEMA } from '@angu
 import { NavComponent } from '../nav/nav.component';
 import { ProductComponent } from '../product/product.component';
 import { Product } from '../../models/product.model';
+import { Category } from '../../models/product.model';
 import { CartService } from '../../services/cart.service';
 import { ProductService } from '../../services/product.service';
+import { CategoryService } from '../../services/category.service';
 import { RouterLinkWithHref } from '@angular/router';
 import { register } from 'swiper/element/bundle';
 register();
@@ -19,6 +21,7 @@ register();
 })
 export class ProductsListComponent implements OnInit{
   products = signal<Product[]>([]);
+  categories = signal<Category[]>([]);
   showProductDetail = false;
   product!: Product;
   //productDetail = signal<Product[] | null>(null);
@@ -30,22 +33,19 @@ export class ProductsListComponent implements OnInit{
     description: '',
     category: {
       id: 0,
-      name:''
+      name:'',
+      image:'',
     }
   }
 
   private cartService = inject(CartService);
   private productService = inject(ProductService);
+  private categoryService = inject(CategoryService);
 
 
   ngOnInit(): void {
-    this.productService.getProducts()
-    .subscribe({
-      next:(products) => {
-        this.products.set(products);
-      },
-      error:() => {}
-    })
+    this.getProducts()
+    this.getCategories()
   }
 
   togglePorductDetail() {
@@ -65,6 +65,26 @@ export class ProductsListComponent implements OnInit{
       },
       error: () => {}
     })
+  };
+
+  private getProducts() {
+    this.productService.getProducts()
+    .subscribe({
+      next:(products) => {
+        this.products.set(products);
+      },
+      error:() => {}
+    });
+  };
+
+  private getCategories() {
+    this.categoryService.getAll()
+    .subscribe({
+      next:(data) => {
+        this.categories.set(data);
+      },
+      error:() => {}
+    });
   };
 
 }
