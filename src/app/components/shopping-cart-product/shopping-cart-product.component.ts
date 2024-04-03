@@ -15,5 +15,11 @@ export class ShoppingCartProductComponent {
   @Input({required: true}) product!: Product;
 
   @Output() addedProduct = new EventEmitter<Product>();
+  @Output() removedProduct = new EventEmitter<Product[]>()
+
+
+  removeProduct() {
+    this.removedProduct.emit()
+  }
 
 }

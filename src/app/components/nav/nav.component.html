@@ -60,10 +60,12 @@
   class="shopping_cart--container">
     <div class="container">
       <h2 class="shopping_cart--title">Shopping cart</h2>
-    <div
-    class="products_container"
-    *ngFor="let product of cart()">
-    <app-shopping-cart-product [product]="product"></app-shopping-cart-product>
+    <div class="products_container">
+      <app-shopping-cart-product
+      *ngFor="let product of cart();
+      let i = index"
+      [product]="product"
+      (removedProduct)="removeFromCart(i)"></app-shopping-cart-product>
     </div>
     <div>
       <span class="total_container">

@@ -1,8 +1,9 @@
-import { Component, inject } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { CommonModule } from '@angular/common';
 import { ShoppingCartProductComponent } from '../shopping-cart-product/shopping-cart-product.component';
 import { RouterLinkWithHref, RouterLinkActive } from '@angular/router';
+import { Product } from '../../models/product.model';
 
 
 @Component({
@@ -25,6 +26,10 @@ export class NavComponent {
 
   toggleShoppingCart() {
     this.activeShoppingCart = !this.activeShoppingCart;
+  }
+
+  removeFromCart(index: number) {
+    this.cartService.removeFromCart(index);
   }
 
 }

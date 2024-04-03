@@ -18,4 +18,8 @@ export class CartService {
     this.cart.update(state => [...state, product]);
   }
 
+  removeFromCart(index: number) {
+    this.cart().splice(index, 1);
+  }
+
 }
