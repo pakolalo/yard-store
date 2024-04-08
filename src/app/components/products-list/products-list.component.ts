@@ -38,6 +38,9 @@ export default class ProductsListComponent implements OnInit, OnChanges{
     }
   }
 
+  limit = 10;
+  offset = 0;
+
   private cartService = inject(CartService);
   private productService = inject(ProductService);
   private categoryService = inject(CategoryService);
@@ -46,6 +49,7 @@ export default class ProductsListComponent implements OnInit, OnChanges{
 
   ngOnInit(): void {
     this.getCategories()
+    //this.getProductsByPage()
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -90,5 +94,26 @@ export default class ProductsListComponent implements OnInit, OnChanges{
       error:() => {}
     });
   };
+
+  private getProductsByPage() {
+    this.productService.getProductsByPage(10, 0)
+    .subscribe({
+      next:(products) => {
+        this.products.set(products);
+      },
+      error: () => {}
+    })
+  }
+
+  loadMoreProducts() {
+    this.productService.getProductsByPage(this.limit, this.offset)
+    .subscribe({
+      next:(products) => {
+        products = this.products().concat(products);
+        this.offset += this.limit;
+      },
+      error: () => {}
+    })
+  }
 
 }
